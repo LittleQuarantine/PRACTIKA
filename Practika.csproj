@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\ClosedEye.png" />
+    <None Remove="Images\eye.png" />
+    <None Remove="Images\Human.png" />
+    <None Remove="Images\Lock.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Classes\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\ClosedEye.png" />
+    <Resource Include="Images\eye.png" />
+    <Resource Include="Images\Human.png" />
+    <Resource Include="Images\Lock.png" />
+  </ItemGroup>
+
+</Project>
