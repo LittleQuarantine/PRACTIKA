@@ -21,6 +21,9 @@ namespace Practika
         public MainWindow()
         {
             InitializeComponent();
+            
+            TextBox2.Visibility = Visibility.Hidden;
+            Button4.Visibility = Visibility.Hidden;
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -37,7 +40,24 @@ namespace Practika
 
         private void Button3_Click(object sender, RoutedEventArgs e)
         {
-            
+            Button4.Visibility = Visibility.Visible;
+            Button3.Visibility = Visibility.Hidden;
+
+            PasswordBox1.Visibility = Visibility.Hidden;
+            TextBox2.Visibility = Visibility.Visible;
+
+            TextBox2.Text = PasswordBox1.Password;
+        }
+
+        private void Button4_Click(object sender, RoutedEventArgs e)
+        {
+            Button3.Visibility = Visibility.Visible;
+            Button4.Visibility = Visibility.Hidden;
+
+            TextBox2.Visibility = Visibility.Hidden;
+            PasswordBox1.Visibility = Visibility.Visible;
+
+            PasswordBox1.Password = TextBox2.Text;
         }
     }
 }

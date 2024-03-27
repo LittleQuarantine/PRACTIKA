@@ -5,68 +5,90 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Practika.Windows"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
+        Title="Window1" Height="450" Width="800" Background="LemonChiffon" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
     <StackPanel>
         <Canvas>
-            <TextBlock Name="TextBlock1"
-                       Text="Регистрация" FontSize="25" TextAlignment="Center" FontWeight="Medium"
+            <TextBlock Text="Регистрация" FontSize="25" TextAlignment="Center" FontWeight="Medium"
                        VerticalAlignment="Center" HorizontalAlignment="Center"
                        Width="160" Height="40"
                        Canvas.Left="300" Canvas.Top="40"/>
-            <TextBox Name="TextBox1" 
-                     Text="Email" FontSize="15" TextAlignment="Center" Foreground="DimGray" GotFocus="TextBox1_GotFocus" LostFocus="TextBox1_LostFocus"
+            <TextBox Name="TextBox1"
+                     FontSize="15"  Foreground="DimGray"
                      VerticalAlignment="Center" 
                      Width="320" Height="35"
-                     Canvas.Left="225" Canvas.Top="85"/>
+                     Canvas.Left="225" Canvas.Top="85" TextChanged="TextBox1_TextChanged"/>
             <TextBox Name="TextBox2" 
-                     Text="Логин" FontSize="15" TextAlignment="Center" Foreground="DimGray"  GotFocus="TextBox2_GotFocus" LostFocus="TextBox2_LostFocus"
+                     FontSize="15" Foreground="DimGray"
                      VerticalAlignment="Center" 
                      Width="320" Height="35"
-                     Canvas.Left="225" Canvas.Top="145"/>
+                     Canvas.Left="225" Canvas.Top="145" TextChanged="TextBox2_TextChanged"/>
+            <PasswordBox Name="PasswordBox3"
+                         PasswordChar="*" FontSize="15"
+                         Width="320" Height="35"
+                         Canvas.Left="225" Canvas.Top="205"/>
+            <PasswordBox Name="PasswordBox4"
+                         PasswordChar="*" FontSize="15"
+                         Width="320" Height="35"
+                         Canvas.Left="225" Canvas.Top="265"/>
             <TextBox Name="TextBox3" 
-                     Text="Пароль" FontSize="15" TextAlignment="Center" Foreground="DimGray" GotFocus="TextBox3_GotFocus" LostFocus="TextBox3_LostFocus"
+                     FontSize="15" Foreground="DimGray"
                      VerticalAlignment="Center" 
                      Width="320" Height="35"
                      Canvas.Left="225" Canvas.Top="205"/>
             <TextBox Name="TextBox4" 
-                     Text="Повторите пароль" FontSize="15" TextAlignment="Center" Foreground="DimGray" GotFocus="TextBox4_GotFocus" LostFocus="TextBox4_LostFocus"
+                     FontSize="15" Foreground="DimGray"
                      VerticalAlignment="Center" 
                      Width="320" Height="35"
                      Canvas.Left="225" Canvas.Top="265"/>
-            <TextBlock Name="TextBlock2" 
-                       Text="Уже зарегестрированы?" FontSize="15" TextAlignment="Center"
+            <TextBlock Name="tb1" Text="" FontSize="10" Foreground="IndianRed"
+                       Canvas.Left="225" Canvas.Top="120"/>
+            <TextBlock Name="tb2" Text="" FontSize="10" Foreground="IndianRed"
+                       Canvas.Left="225" Canvas.Top="180"/>
+            <TextBlock Name="tb3" Text="" FontSize="10" Foreground="IndianRed"
+                       Canvas.Left="225" Canvas.Top="240"/>
+            <TextBlock Name="tb4" Text="" FontSize="10" Foreground="IndianRed"
+                       Canvas.Left="225" Canvas.Top="300"/>
+            <TextBlock Name="tb5" Text="" FontSize="15"
+                       Canvas.Left="285" Canvas.Top="395"/>
+            <TextBlock Text="Уже зарегестрированы?" FontSize="15" TextAlignment="Center"
                        VerticalAlignment="Center" HorizontalAlignment="Center"
                        Width="165" Height="25"
-                       Canvas.Left="230" Canvas.Top="307"/>
+                       Canvas.Left="230" Canvas.Top="319"/>
             <Button Name="Button1" 
-                    Content="Войти" FontSize="15" HorizontalContentAlignment="Left"
-                    BorderBrush="Transparent"
+                    Content="Войти" FontSize="15" Foreground="SkyBlue" HorizontalContentAlignment="Left"
+                    BorderBrush="Transparent" Background="LemonChiffon"
                     Width="60" Height="25"
-                    Canvas.Left="405" Canvas.Top="305" Click="Button1_Click"/>
+                    Canvas.Left="405" Canvas.Top="317" Click="Button1_Click"/>
             <Button Name="Button2" 
                     Content="Зарегестрироваться" FontSize="20"
-                    BorderBrush="Transparent" Background="LightBlue"
+                    BorderBrush="Transparent" Background="LightPink"
                     Width="200" Height="40"
-                    Canvas.Left="282" Canvas.Top="340"/>
-            <Image Name="Im1" 
-                   Width="35" 
+                    Canvas.Left="282" Canvas.Top="350" Click="Button2_Click"/>
+            <Image Width="35" 
                    Source="/Images/Human.png"
                    Canvas.Left="185" Canvas.Top="85"/>
-            <Image Name="Im3" 
-                   Width="35" 
+            <Image Width="35" 
                    Source="/Images/Lock.png"
                    Canvas.Left="185" Canvas.Top="205"/>
-            <Button Width="35" 
-                    BorderBrush="Transparent"
+            <Button Name="Button3" Width="35" Click="Button3_Click"
+                    BorderBrush="Transparent" Background="LemonChiffon"
                     Canvas.Left="550" Canvas.Top="205">
-                <Image Name="Im5"
-                       Source="/Images/eye.png"/>
+                <Image Source="/Images/eye.png"/>
             </Button>
-            <Button Width="35" 
-                    BorderBrush="Transparent"
+            <Button Name="Button4" Width="35" Click="Button4_Click"
+                    BorderBrush="Transparent" Background="LemonChiffon"
                     Canvas.Left="550" Canvas.Top="265">
-                <Image Name="Im6" 
-                       Source="/Images/eye.png"/>
+                <Image Source="/Images/eye.png"/>
+            </Button>
+            <Button Name="Button5" Width="35" Click="Button5_Click"
+                    BorderBrush="Transparent" Background="LemonChiffon"
+                    Canvas.Left="550" Canvas.Top="205">
+                <Image Source="/Images/ClosedEye.png" />
+            </Button>
+            <Button Name="Button6" Width="35" Click="Button6_Click"
+                    BorderBrush="Transparent" Background="LemonChiffon"
+                    Canvas.Left="550" Canvas.Top="265">
+                <Image Source="/Images/ClosedEye.png" />
             </Button>
         </Canvas>
     </StackPanel>

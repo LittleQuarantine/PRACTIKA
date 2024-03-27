@@ -23,6 +23,12 @@ namespace Practika.Windows
         public Window1()
         {
             InitializeComponent();
+
+            TextBox3.Visibility = Visibility.Hidden;
+            TextBox4.Visibility = Visibility.Hidden;
+
+            Button5.Visibility = Visibility.Hidden;
+            Button6.Visibility = Visibility.Hidden;
         }
 
         private void Button1_Click(object sender, RoutedEventArgs e)
@@ -37,69 +43,124 @@ namespace Practika.Windows
             Environment.Exit(0);
         }
 
+        private void Button3_Click(object sender, RoutedEventArgs e)
+        {
+            Button5.Visibility = Visibility.Visible;
+            Button3.Visibility = Visibility.Hidden;
+
+            TextBox3.Visibility = Visibility.Visible;
+            PasswordBox3.Visibility = Visibility.Hidden;
+
+            TextBox3.Text = PasswordBox3.Password;
+        }
+        private void Button4_Click(object sender, RoutedEventArgs e)
+        {
+            Button6.Visibility = Visibility.Visible;
+            Button4.Visibility = Visibility.Hidden;
+
+            TextBox4.Visibility = Visibility.Visible;
+            PasswordBox4.Visibility = Visibility.Hidden;
+
+            TextBox4.Text = PasswordBox4.Password;
+        }
+
+        private void Button5_Click(object sender, RoutedEventArgs e)
+        {
+            Button3.Visibility = Visibility.Visible;
+            Button5.Visibility = Visibility.Hidden;
+
+            PasswordBox3.Visibility = Visibility.Visible;
+            TextBox3.Visibility = Visibility.Hidden;
+
+            PasswordBox3.Password = TextBox3.Text;
+        }
         
-
-        private void TextBox1_GotFocus(object sender, RoutedEventArgs e)
+        private void Button6_Click(object sender, RoutedEventArgs e)
         {
-            if (TextBox1.Text == "Email")
+            Button4.Visibility = Visibility.Visible;
+            Button6.Visibility = Visibility.Hidden;
+
+            PasswordBox4.Visibility = Visibility.Visible;
+            TextBox4.Visibility = Visibility.Hidden;
+
+            PasswordBox4.Password = TextBox4.Text;
+        }
+
+        private void Button2_Click(object sender, RoutedEventArgs e)
+        {
+            var login = TextBox1.Text;
+            var email = TextBox2.Text;
+            var password = TextBox4.Text;
+
+            var context = new AppDbContext();
+
+            var user_existLog = context.Users.FirstOrDefault(x => x.Login == login);
+            if (user_existLog is not null)
             {
-                TextBox1.Text = "";
+                tb1.Text = "Такой пользователь уже есть";
+                return;
+            }
+            
+            var user = new User { Login = login, Email = email, Password = password };
+            context.Users.Add(user);
+            context.SaveChanges();
+            MessageBox.Show("Регистрация прошла успешно");
+        }
+
+        private void TextBox1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (TextBox1.Text.Length > 18)
+            {
+                tb1.Text = "Логин не должен превышать 18 символов";
             }
         }
 
-        private void TextBox1_LostFocus(object sender, RoutedEventArgs e)
+        private void TextBox2_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (string.IsNullOrEmpty(TextBox1.Text))
+            string email = TextBox2.Text;
+            char requiredSymbol = '@';
+            if (email.Contains(requiredSymbol))
             {
-                TextBox1.Text = "Email";
+
             }
-        }
-        
-        private void TextBox2_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (TextBox2.Text == "Логин")
+            else
             {
-                TextBox2.Text = "";
+                tb2.Text = "Email неверно указан";
+                
             }
         }
 
-        private void TextBox2_LostFocus(object sender, RoutedEventArgs e)
+        private void TextBox3_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (string.IsNullOrEmpty(TextBox2.Text))
+            string password = PasswordBox3.Password;
+            if (ContainsSpecChar(password))
             {
-                TextBox2.Text = "Логин";
+
             }
+            else
+            {
+                tb3.Text = "Пароль должен содержать в себе символы !@#$%^&*()_+-=;:,.? ";
+            }
+
+        }
+        private bool ContainsSpecChar(string password)
+        {
+            string specialChar = "!@#$%^&*()_+-=;:,.?";
+            foreach (char c in specialChar)
+            {
+                if (password.Contains(c))
+                {
+                    return true;
+                }    
+            }
+            return false;
         }
 
-        private void TextBox3_GotFocus(object sender, RoutedEventArgs e)
+        private void TextBox4_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (TextBox3.Text == "Пароль")
+            if (PasswordBox4.Password != PasswordBox3.Password)
             {
-                TextBox3.Text = "";
-            }
-        }
-
-        private void TextBox3_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrEmpty(TextBox3.Text))
-            {
-                TextBox3.Text = "Пароль";
-            }
-        }
-
-        private void TextBox4_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (TextBox4.Text == "Повторите пароль")
-            {
-                TextBox4.Text = "";
-            }
-        }
-
-        private void TextBox4_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrEmpty(TextBox4.Text))
-            {
-                TextBox4.Text = "Повторите пароль";
+                tb4.Text = "Пароли не совпадают";
             }
         }
     }

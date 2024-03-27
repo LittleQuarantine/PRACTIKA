@@ -8,28 +8,30 @@
         Title="MainWindow" Height="450" Width="800" Background="LemonChiffon" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
     <StackPanel>
         <Canvas>
-            <TextBlock Name="TextBlock1"
-                       Text="Вход" FontSize="25" TextAlignment="Center" FontWeight="Medium"
+            <TextBlock Text="Вход" FontSize="25" TextAlignment="Center" FontWeight="Medium"
                        VerticalAlignment="Center" HorizontalAlignment="Center"
                        Width="160" Height="40"
                        Canvas.Left="300" Canvas.Top="100"/>
-            <TextBox Name="TextBox1" 
-                     FontSize="15" TextAlignment="Center"
+            <TextBox Name="TextBox1"
+                     FontSize="15" Foreground="DimGray"
                      VerticalAlignment="Center" 
                      Width="320" Height="40"
                      Canvas.Left="225" Canvas.Top="150"/>
-            <TextBox Name="TextBox2" 
-                     FontSize="15" TextAlignment="Center"
+            <TextBox Name="TextBox2"
+                     FontSize="15" Foreground="DimGray"
                      VerticalAlignment="Center" 
                      Width="320" Height="40"
                      Canvas.Left="225" Canvas.Top="220"/>
+            <PasswordBox Name="PasswordBox1"
+                         PasswordChar="*" FontSize="15" 
+                         Width="320" Height="40"
+                         Canvas.Left="225" Canvas.Top="220"/>
             <Button Name="Button1" 
                     Content="Войти" FontSize="20"
-                    BorderBrush="Transparent" Background="LightBlue"
+                    BorderBrush="Transparent" Background="SkyBlue"
                     Width="180" Height="40"
                     Canvas.Left="285" Canvas.Top="320"/>
-            <TextBlock Name="TextBlock2" 
-                       Text="Не зарегестрированы?" FontSize="15" TextAlignment="Center"
+            <TextBlock Text="Не зарегестрированы?" FontSize="15" TextAlignment="Center"
                        VerticalAlignment="Center" HorizontalAlignment="Center"
                        Width="160" Height="25"
                        Canvas.Left="225" Canvas.Top="277"/>
@@ -38,16 +40,21 @@
                     BorderBrush="Transparent" Background="LemonChiffon" Foreground="LightPink"
                     Width="150" Height="25"
                     Canvas.Left="390" Canvas.Top="275" Click="Button2_Click"/>
-            <Image Name="Image1" Source="/Images/Human.png" 
+            <Image Source="/Images/Human.png" 
                    Width="45" 
                    Canvas.Left="175" Canvas.Top="150"/>
-            <Image Name="Image2" Source="/Images/Lock.png"
+            <Image Source="/Images/Lock.png"
                    Width="45"
                    Canvas.Left="175" Canvas.Top="215"/>
             <Button Name="Button3" Width="40" Click="Button3_Click"
                     BorderBrush="Transparent" Background="LemonChiffon"
                     Canvas.Left="550" Canvas.Top="220">
-                <Image Name="Image3" Source="/Images/eye.png"/>
+                <Image Source="/Images/eye.png"/>
+            </Button>
+            <Button Name="Button4" Width="40" Click="Button4_Click"
+                    BorderBrush="Transparent" Background="LemonChiffon"
+                    Canvas.Left="550" Canvas.Top="220">
+                <Image Source="/Images/ClosedEye.png" />
             </Button>
         </Canvas>
     </StackPanel>
