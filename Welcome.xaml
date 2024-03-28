@@ -1,0 +1,19 @@
+﻿<Window x:Class="PractikaChanged.Welcome"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PractikaChanged"
+        mc:Ignorable="d"
+        Title="Welcome" Height="450" Width="800" Background="LemonChiffon" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+    <StackPanel>
+        <Canvas>
+            <TextBlock Name="tb1" Text="" FontSize="20" Foreground="Black"
+                       Canvas.Left="200" Canvas.Top="100"/>
+            <MediaElement Name="video"
+                          LoadedBehavior="Play" UnloadedBehavior="Manual"
+                          Width="400" Height="200"
+                          Canvas.Left="200" Canvas.Top="150" />
+        </Canvas>
+    </StackPanel>
+</Window>

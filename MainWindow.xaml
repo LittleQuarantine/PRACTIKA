@@ -1,0 +1,64 @@
+﻿<Window x:Class="PractikaChanged1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PractikaChanged1"
+        mc:Ignorable="d"
+            Title="SingIn" Height="450" Width="800" Background="LemonChiffon" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
+    <StackPanel>
+        <Canvas>
+            <TextBlock Text="Вход" FontSize="25" TextAlignment="Center" FontWeight="Medium"
+                   VerticalAlignment="Center" HorizontalAlignment="Center"
+                   Width="160" Height="40"
+                   Canvas.Left="300" Canvas.Top="100"/>
+            <TextBlock Name="tb1" Text="" FontSize="10" Foreground="IndianRed"
+                       Canvas.Left="225" Canvas.Top="195"/>
+            <TextBox Name="TextBox1"
+                 FontSize="15" Foreground="DimGray"
+                 VerticalAlignment="Center" 
+                 Width="320" Height="40"
+                 Canvas.Left="225" Canvas.Top="150"/>
+            <TextBox Name="TextBox2"
+                 FontSize="15" Foreground="DimGray"
+                 VerticalAlignment="Center" 
+                 Width="320" Height="40"
+                 Canvas.Left="225" Canvas.Top="220"/>
+            <PasswordBox Name="PasswordBox1"
+                     PasswordChar="*" FontSize="15" 
+                     Width="320" Height="40"
+                     Canvas.Left="225" Canvas.Top="220"/>
+            <Button Name="Button1" 
+                Content="Войти" FontSize="20"
+                BorderBrush="Transparent" Background="SkyBlue"
+                Width="180" Height="40"
+                Canvas.Left="285" Canvas.Top="320" Click="Button1_Click"/>
+            <TextBlock Text="Не зарегестрированы?" FontSize="15" TextAlignment="Center"
+
+                   VerticalAlignment="Center" HorizontalAlignment="Center"
+                   Width="160" Height="25"
+                   Canvas.Left="225" Canvas.Top="277"/>
+            <Button Name="Button2"
+                Content="Зарегестрироваться" FontSize="15"
+                BorderBrush="Transparent" Background="LemonChiffon" Foreground="LightPink"
+                Width="150" Height="25"
+                Canvas.Left="390" Canvas.Top="275" Click="Button2_Click"/>
+            <Image Source="/Images/Human.png" 
+               Width="45" 
+               Canvas.Left="175" Canvas.Top="150"/>
+            <Image Source="/Images/Lock.png"
+               Width="45"
+               Canvas.Left="175" Canvas.Top="215"/>
+            <Button Name="Button3" Width="40" 
+                BorderBrush="Transparent" Background="LemonChiffon"
+                Canvas.Left="550" Canvas.Top="220" Click="Button3_Click">
+                <Image Source="/Images/eye.png"/>
+            </Button>
+            <Button Name="Button4" Width="40" 
+    BorderBrush="Transparent" Background="LemonChiffon"
+    Canvas.Left="550" Canvas.Top="220" Click="Button4_Click">
+                <Image Source="/Images/ClosedEye.png"/>
+            </Button>
+        </Canvas>
+    </StackPanel>
+</Window>
